@@ -3,6 +3,7 @@ package com.meter.your.calories.OrderService.models.entities;
 
 import com.meter.your.calories.OrderService.models.enums.FoodGroupEnum;
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Order;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,15 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class OrderEntity {
+
+    public OrderEntity(){}
+
+    public OrderEntity(Timestamp orderCreationTs, UserEntity user, Integer totalCalories) {
+        this.orderCreationTs = orderCreationTs;
+        this.user = user;
+        this.totalCalories = totalCalories;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ID")
