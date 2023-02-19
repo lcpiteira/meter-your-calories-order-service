@@ -1,5 +1,5 @@
 # Meter Your Calories Platform
-## Product Service
+## Order Service
 
 This service contains the logic for creating an order for an employee and saving the information in the database and also showing the entire history of orders carried out by an employee.
 
