@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity getUserByName(String name) throws Exception {
-        Optional<UserEntity> userEntityOpt = userRepository.findUserEntitiesByEmail(name);
+        Optional<UserEntity> userEntityOpt = userRepository.findUserEntitiesByName(name);
         if(userEntityOpt.isEmpty()){
             throw new Exception("Does not exist any user registered with email "+ name);
         }
