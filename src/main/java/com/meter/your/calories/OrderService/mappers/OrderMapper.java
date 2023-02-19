@@ -23,11 +23,16 @@ public class OrderMapper {
                 .toList();
         List<FoodDto> foodDtos = FoodMapper.mapFoodEntityListToDtoList(foodListFromOrder);
 
+        Integer order_total_calories = foodDtos
+                .stream()
+                .map(FoodDto::getCalories)
+                .reduce(0, Integer::sum);
+
         return
                 OrderDto
                         .builder()
                         .username(orderEntity.getUser().getName())
-
+                        .order_total_calories(order_total_calories)
                         .order_ts(orderEntity.getOrderCreationTs().toString())
                         .foodDtoList(foodDtos)
                         .build();
