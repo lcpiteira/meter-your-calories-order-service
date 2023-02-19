@@ -21,10 +21,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity getUserByEmail(String email) throws Exception {
-        Optional<UserEntity> userEntityOpt = userRepository.findUserEntitiesByEmail(email);
+    public UserEntity getUserByName(String name) throws Exception {
+        Optional<UserEntity> userEntityOpt = userRepository.findUserEntitiesByEmail(name);
         if(userEntityOpt.isEmpty()){
-            throw new Exception("Does not exist any user registered with email "+ email);
+            throw new Exception("Does not exist any user registered with email "+ name);
         }
         return userEntityOpt.get();
     }

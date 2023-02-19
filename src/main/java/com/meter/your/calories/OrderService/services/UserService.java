@@ -4,5 +4,5 @@ import com.meter.your.calories.OrderService.models.entities.UserEntity;
 
 public interface UserService {
 
-    UserEntity getUserByEmail(String email) throws Exception;
+    UserEntity getUserByName(String name) throws Exception;
 }

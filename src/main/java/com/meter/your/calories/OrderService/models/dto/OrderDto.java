@@ -11,11 +11,10 @@ import java.util.List;
 @Builder
 
 public class OrderDto {
-    public OrderDto(String token, List<FoodDto> foodDtoList) {
-        this.token = token;
+    public OrderDto(String username, List<FoodDto> foodDtoList) {
         this.foodDtoList = foodDtoList;
+        this.username = username;
     }
-
-    private String token;
+    private String username;
     private List<FoodDto> foodDtoList;
 }

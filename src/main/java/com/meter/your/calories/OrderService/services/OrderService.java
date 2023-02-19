@@ -5,6 +5,6 @@ import jakarta.persistence.criteria.Order;
 
 public interface OrderService {
 
-    void registryOrder(OrderDto orderDto, String userEmail) throws Exception;
+    void registryOrder(OrderDto orderDto) throws Exception;
 
 }

@@ -32,8 +32,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void registryOrder(OrderDto orderDto, String userEmail) throws Exception {
-        UserEntity user = userService.getUserByEmail(userEmail);
+    public void registryOrder(OrderDto orderDto) throws Exception {
+        UserEntity user = userService.getUserByName(orderDto.getUsername());
 
         //create order entity and calculate total calories of meal
         //Total calories of meal
