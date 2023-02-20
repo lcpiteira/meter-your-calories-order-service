@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +24,9 @@ public class UserEntity {
 
     @Column(name = "EMAIL")
     private String email;
+
+    @OneToMany(mappedBy="user")
+    private List<OrderEntity> orders;
 
 
 
