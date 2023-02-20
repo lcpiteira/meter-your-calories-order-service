@@ -1,24 +1,25 @@
 package com.meter.your.calories.OrderService.models.entities;
 
 
-import com.meter.your.calories.OrderService.models.enums.FoodGroupEnum;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 @Getter
 @Setter
 public class OrderEntity {
 
     public OrderEntity(){}
 
-    public OrderEntity(Timestamp orderCreationTs, UserEntity user, Integer totalCalories) {
+    public OrderEntity(LocalDateTime orderCreationTs, UserEntity user, Integer totalCalories) {
         this.orderCreationTs = orderCreationTs;
         this.user = user;
         this.totalCalories = totalCalories;
@@ -29,13 +30,17 @@ public class OrderEntity {
     @Column(name = "ORDER_ID")
     private Long id;
     @Column(name = "ORDER_CREATION_TS")
-    private Timestamp orderCreationTs;
-    @ManyToOne()
+    private LocalDateTime orderCreationTs;
+    @ManyToOne
     @JoinColumn(name = "USER_ID")
     private UserEntity user;
 
     @Column(name = "TOTAL_CALORIES")
     private Integer totalCalories;
+
+
+    @OneToMany(mappedBy="order")
+    private List<OrderFoodItemEntity> orderItems;
 
 
 }

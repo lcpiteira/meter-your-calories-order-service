@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Service
@@ -42,8 +45,8 @@ public class OrderServiceImpl implements OrderService {
                 .map(FoodDto::getCalories)
                 .reduce(0, Integer::sum);
 
-        Timestamp creationTs = new Timestamp(new Date().getTime());
-        OrderEntity orderEntity = new OrderEntity(creationTs, user, mealTotalCalories);
+
+        OrderEntity orderEntity = new OrderEntity(LocalDateTime.now(), user, mealTotalCalories);
 
         //Save order entity on database
         orderRepository.save(orderEntity);
